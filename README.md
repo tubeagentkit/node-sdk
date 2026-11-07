@@ -100,6 +100,10 @@ export async function POST(request: Request) {
 }
 ```
 
+## Command line
+
+The same API from a shell: `npm install -g @tubeagentkit/cli`, then `gyt login` and `gyt transcript <url>`. It is built on this SDK; see [tubeagentkit/youtube-transcript-cli](https://github.com/tubeagentkit/youtube-transcript-cli).
+
 ## Getting an API key
 
 Every request needs an API key. New accounts get **100 free credits, no card required** - grab one at [getyoutubetranscript.com](https://getyoutubetranscript.com).
