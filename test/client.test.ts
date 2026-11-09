@@ -156,7 +156,7 @@ describe("GetYouTubeTranscript request construction", () => {
     fetchMock.mockResolvedValueOnce(
       jsonResponse(200, {
         success: true,
-        data: { plan_credits_left: 87, topup_credits_left: 0, plan: "monthly", rate_limit_per_minute: 200 },
+        data: { plan_credits_left: 87, topup_credits_left: 0, total_credits_left: 87, plan: "monthly", rate_limit_per_minute: 200 },
       }),
     );
 
@@ -167,6 +167,7 @@ describe("GetYouTubeTranscript request construction", () => {
     expect(init.method).toBe("GET");
     expect(result.plan).toBe("monthly");
     expect(result.plan_credits_left).toBe(87);
+    expect(result.total_credits_left).toBe(87);
   });
 
   it("honors a custom baseUrl", async () => {

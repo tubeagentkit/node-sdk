@@ -487,8 +487,12 @@ export interface VideoDislikesData {
 // ---------------------------------------------------------------------------
 
 export interface CreditsData {
+  /** Unused credits from this billing period's plan allowance. Resets on renewal. */
   plan_credits_left: number;
+  /** Unused credits from purchased top-up batches. Spent only once plan_credits_left reaches 0. */
   topup_credits_left: number;
+  /** plan_credits_left + topup_credits_left - check this, not plan_credits_left alone, for the real spendable balance. */
+  total_credits_left: number;
   plan: "free" | "monthly" | "yearly";
   rate_limit_per_minute: number;
   [key: string]: unknown;

@@ -44,6 +44,8 @@ describe.skipIf(!apiKey)("live integration", () => {
   it("getCredits returns the key's plan and balance (free)", async () => {
     const data = await client.getCredits();
     expect(typeof data.plan_credits_left).toBe("number");
+    expect(typeof data.topup_credits_left).toBe("number");
+    expect(data.total_credits_left).toBe(data.plan_credits_left + data.topup_credits_left);
     expect(typeof data.rate_limit_per_minute).toBe("number");
     expect(["free", "monthly", "yearly"]).toContain(data.plan);
   });
